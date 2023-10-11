@@ -37,6 +37,13 @@ function App() {
     //   return [...data]
     // })
   }
+  const deleteItem = (id) => {
+    // setTodoItems((data) => {
+    //   return data.filter((item) => {return item.id !== id})
+    // })
+    const newTodoItems = todoItems.filter((item) => item.id !== id)
+    setTodoItems([...newTodoItems])
+  }
   return (
     <div className="App">
       <AddTodo 
@@ -47,6 +54,7 @@ function App() {
           <Todo
             key={idx}
             todo={todo}
+            deleteItem={deleteItem}
           />
         )
       }

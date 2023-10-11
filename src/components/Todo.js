@@ -1,8 +1,10 @@
 import React from 'react'
 
-export default function todo({todo}) {
+export default function todo({todo, deleteItem}) {
   const {id, title, done} = todo
-
+  const deleteClick = () => {
+    deleteItem(id)
+  }
   return (
     <div>
       <input 
@@ -13,6 +15,11 @@ export default function todo({todo}) {
         defaultChecked = {done}
       />
       <label htmlFor={`todo${id}`} >{title}</label>
+      <button
+        onClick={deleteClick}
+      >
+        delete
+      </button>
     </div>
   )
 }
