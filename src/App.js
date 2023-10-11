@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Todo from './components/Todo'
+import AddTodo from './components/AddTodo';
+
 
 function App() {
   const [todoItems, setTodoItems] = useState([
@@ -19,8 +21,27 @@ function App() {
       done: true,
     },
   ]);
+  const addItem = (addTodo) => {
+    const addItem = {
+      id : todoItems.length + 1,
+      title : addTodo.title,
+      done: false
+    }
+    setTodoItems([...todoItems, addItem])
+    // setTodoItems((data) => {
+    //   data.push({ 
+    //     id : todoItems.length+1, 
+    //     title : addTodo.title, 
+    //     done : false
+    //   })
+    //   return [...data]
+    // })
+  }
   return (
     <div className="App">
+      <AddTodo 
+        addItem={addItem}
+      />
       {
         todoItems.map((todo, idx) => 
           <Todo

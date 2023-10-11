@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function todo({todo}) {
   const {id, title, done} = todo
+
   return (
     <div>
       <input 
